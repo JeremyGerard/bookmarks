@@ -2,13 +2,13 @@
 
 <p>
   <strong>Title:</strong>
-  <td><%= current_user.bookmarks.last.title %></td>
+  <td><%= current_user.bookmarks.find(params[:id]).title %></td>
 
 </p>
 
 <p>
   <strong>Url:</strong>
-  <td><%= current_user.bookmarks.last.url %></td>
+  <td><%= current_user.bookmarks.find(params[:id]).url %></td>
 </p>
 
 <%= link_to 'Edit', edit_bookmark_path(current_user.bookmarks) %> |
