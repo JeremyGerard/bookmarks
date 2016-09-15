@@ -12,7 +12,7 @@
   </thead>
 
   <tbody>
-    <% @bookmarks.each do |bookmark| %>
+    <% current_user.bookmarks.each do |bookmark| %>
       <tr>
         <td><%= bookmark.title %></td>
         <td><%= bookmark.url %></td>

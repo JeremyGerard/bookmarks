@@ -41,6 +41,7 @@ class BookmarksController < ApplicationController
   # PATCH/PUT /bookmarks/1
   # PATCH/PUT /bookmarks/1.json
   def update
+    @bookmark = current_user.bookmarks
     respond_to do |format|
       if @bookmark.update(bookmark_params)
         format.html { redirect_to @bookmark, notice: 'Bookmark was successfully updated.' }
@@ -55,6 +56,7 @@ class BookmarksController < ApplicationController
   # DELETE /bookmarks/1
   # DELETE /bookmarks/1.json
   def destroy
+    @bookmark = current_user.bookmarks
     @bookmark.destroy
     respond_to do |format|
       format.html { redirect_to bookmarks_url, notice: 'Bookmark was successfully destroyed.' }
@@ -65,7 +67,10 @@ class BookmarksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_bookmark
-      @bookmark = current_user.bookmarks.find(params[:id])
+      unless @bookmark = current_user.bookmarks.where(id:params[:id]).first
+        flash[:alert] = 'Bookmark not found.'
+        redirect_to root_url
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

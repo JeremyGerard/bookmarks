@@ -7,8 +7,7 @@ class Bookmark < ActiveRecord::Base
 	#Vérifier que le titre est présent et qu'il fait au moins 5 caractères
 	validates :title, length: {minimum: 5}, presence: true
 
-	
-
-	
+	#vérifier que l'url est présente et respect le format
+	validates :url, format: {with: Regexp.new(URI::regexp(%w(http https)))}, presence: true
 
 end

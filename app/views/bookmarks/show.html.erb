@@ -2,13 +2,14 @@
 
 <p>
   <strong>Title:</strong>
-  <%= @bookmark.title %>
+  <td><%= current_user.bookmarks.last.title %></td>
+
 </p>
 
 <p>
   <strong>Url:</strong>
-  <%= @bookmark.url %>
+  <td><%= current_user.bookmarks.last.url %></td>
 </p>
 
-<%= link_to 'Edit', edit_bookmark_path(@bookmark) %> |
+<%= link_to 'Edit', edit_bookmark_path(current_user.bookmarks) %> |
 <%= link_to 'Back', bookmarks_path %>
