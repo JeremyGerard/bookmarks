@@ -31,6 +31,10 @@ gem 'devise', '~> 3.4.0'
 # CSS framework
 gem 'zurb-foundation', '~> 4.2.2'
 
+# HTML 2 SLIM
+gem 'html2slim', '~> 0.2.0'
+gem 'slim', '~> 3.0', '>= 3.0.6'
+
 #Form
 gem 'simple_form', '~> 3.0.0.rc'
 
