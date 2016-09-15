@@ -11,6 +11,7 @@ class BookmarksController < ApplicationController
   # GET /bookmarks/1
   # GET /bookmarks/1.json
   def show
+    @bookmark = current_user.bookmarks.find(params[:id])
   end
 
   # GET /bookmarks/new
@@ -20,6 +21,7 @@ class BookmarksController < ApplicationController
 
   # GET /bookmarks/1/edit
   def edit
+    @bookmark = current_user.bookmarks.find(params[:id])
   end
 
   # POST /bookmarks
@@ -56,7 +58,8 @@ class BookmarksController < ApplicationController
   # DELETE /bookmarks/1
   # DELETE /bookmarks/1.json
   def destroy
-    @bookmark = current_user.bookmarks.find(params[:id]).destroy
+    @bookmark = current_user.bookmarks.find(params[:id])
+    @bookmark.destroy
     respond_to do |format|
       format.html { redirect_to bookmarks_url, notice: 'Bookmark was successfully destroyed.' }
       format.json { head :no_content }
@@ -66,7 +69,7 @@ class BookmarksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_bookmark
-      unless @bookmark = current_user.bookmarks.where(params[:id]).first
+      unless @bookmark = current_user.bookmarks.find(params[:id]).first
         flash[:alert] = 'Bookmark not found.'
         redirect_to root_url
       end

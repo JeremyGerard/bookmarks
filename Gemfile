@@ -28,6 +28,12 @@ gem 'devise', '~> 3.4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# CSS framework
+gem 'zurb-foundation', '~> 4.2.2'
+
+#Form
+gem 'simple_form', '~> 3.0.0.rc'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
