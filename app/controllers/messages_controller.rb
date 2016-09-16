@@ -25,6 +25,7 @@ class MessagesController < ApplicationController
 
   def edit
     @message = current_user.messages.find(params[:id])
+    @messages = current_user.messages.order("created_at DESC")
   end
 
   def update

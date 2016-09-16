@@ -1,3 +1,31 @@
-h3
-  |  Modification
-= render "form"
+doctype html
+html.no-js[lang="en"]
+  head
+    meta[charset="utf-8"]
+    meta[name="viewport" content="width=device-width, initial-scale=1.0"]
+    title
+      | KMarketing
+    link[rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css"]
+  body
+    .off-canvas-wrapper
+      .off-canvas-wrapper-inner data-off-canvas-wrapper=""
+        #my-info.off-canvas.position-left.reveal-for-large data-off-canvas="" data-position="left"
+          .row.column
+            - @messages.each do |message|
+              .column
+                ul.accordion data-accordion="" data-allow-all-closed="true"
+                  li.accordion-item data-accordion-item=""
+                    a.accordion-title
+                      | Code :
+                      = message.title.html_safe
+                    .accordion-content data-tab-content=""
+                      .callout.secondary
+                        = link_to message.body.html_safe, edit_message_path(message)
+        .off-canvas-content data-off-canvas-content=""
+          .title-bar.hide-for-large
+            .title-bar-left
+              button.menu-icon data-open="my-info" type="button"
+              span.title-bar-title
+                | Messages
+          .row
+            = render "form"
