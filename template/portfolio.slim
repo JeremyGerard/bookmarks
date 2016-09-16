@@ -1,0 +1,45 @@
+doctype html
+html.no-js[lang="en"]
+  head
+    meta[charset="utf-8"]
+    meta[name="viewport" content="width=device-width, initial-scale=1.0"]
+    title
+      | KMarketing
+    link[rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css"]
+  body
+    .off-canvas-wrapper
+      .off-canvas-wrapper-inner[data-off-canvas-wrapper]
+        #my-info.off-canvas.position-left.reveal-for-large[data-off-canvas data-position="left"]
+          .row.column
+            br
+            img.thumbnail[src="http://placehold.it/550x350"]
+            h5
+              - @messages.each do |message|
+                ul.accordion data-accordion="" data-allow-all-closed="true"
+                  li.accordion-item data-accordion-item=""
+                    a.accordion-title
+                      | Code :
+                      = message.title.html_safe
+                    .accordion-content data-tab-content="1"
+                      .callout.secondary
+                        = link_to message.body.html_safe, edit_message_path(message)
+        .off-canvas-content[data-off-canvas-content]
+          .title-bar.hide-for-large
+            .title-bar-left
+              button.menu-icon[type="button" data-open="my-info"]
+              span.title-bar-title
+                = simple_form_for @message do |f|
+                  .form-inputs
+                    = f.text_field :title
+          .callout.primary
+            .row.column
+              h1
+                | Hello! This is the portfolio of a very witty person.
+              p.lead
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla.
+          .row.small-up-2.medium-up-3.large-up-4
+            =render
+    script[src="https://code.jquery.com/jquery-2.1.4.min.js"]
+    script[src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"]
+    script
+      |  $(document).foundation();
