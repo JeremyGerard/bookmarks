@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # User manager
-gem 'devise', '~> 3.4.0'
+gem 'devise', '~> 4.2.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -34,6 +34,7 @@ gem 'zurb-foundation', '~> 4.2.2'
 # HTML 2 SLIM
 gem 'html2slim', '~> 0.2.0'
 gem 'slim', '~> 3.0', '>= 3.0.6'
+
 
 #Form
 gem 'simple_form', '~> 3.0.0.rc'
