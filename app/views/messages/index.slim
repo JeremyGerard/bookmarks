@@ -37,8 +37,8 @@ html.no-js[lang="en"]
         - unless user_signed_in?
           | Connecter vous au service pour commencer a utiliser KMarketing
         - else
-          a.button.large
-            = link_to('Créer votre message', new_message_path)
+          a.button.large href=new_message_path
+            | Créer votre message
 
     .row.column
       h3
@@ -49,9 +49,10 @@ html.no-js[lang="en"]
       - if user_signed_in?
         - @messages.each do |message|
           .column
+            | Code :
             = message.title.html_safe
-            p
-              = link_to message.body.html_safe, edit_message_path(message)
+            .callout.secondary
+              =link_to message.body.html_safe, edit_message_path(message)
 
     script[src="https://code.jquery.com/jquery-2.1.4.min.js"]
     script[src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"]
