@@ -35,6 +35,8 @@ gem 'zurb-foundation', '~> 4.2.2'
 gem 'html2slim', '~> 0.2.0'
 gem 'slim', '~> 3.0', '>= 3.0.6'
 
+# CKEDITOR WYSIWYG
+gem 'ckeditor'
 
 #Form
 gem 'simple_form', '~> 3.2', '>= 3.2.1'

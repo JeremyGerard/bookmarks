@@ -1,0 +1,13 @@
+- if @message.errors.any?
+  ul
+    = @message.errors.full_messages.each do |message|
+      li
+        = message
+= simple_form_for @message do |f|
+  .form-inputs
+    = f.label :title
+    = f.text_field :title
+    = f.label :body
+    = f.cktext_area :body, rows: 10
+  .form-actions
+    = f.button :submit
