@@ -37,7 +37,7 @@ gem 'slim', '~> 3.0', '>= 3.0.6'
 
 
 #Form
-gem 'simple_form', '~> 3.0.0.rc'
+gem 'simple_form', '~> 3.2', '>= 3.2.1'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
